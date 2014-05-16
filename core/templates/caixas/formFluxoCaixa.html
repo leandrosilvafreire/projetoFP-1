@@ -3,34 +3,49 @@
 {% block titulo %}Fluxo de Caixa{% endblock titulo %}
 
 {% block conteudo %}
-<div class="container">
-<form class="form-horizontal" action="/caixas/fluxo/" method="POST" role="form">{% csrf_token %}
+<script type="text/javascript">
+  $(function() {
+    $('#datetimepicker1').datetimepicker({
+      language: 'pt-BR'
+    });
+  });
+</script>
 
+
+
+
+  <form class="formulario" id="formmulario" action="/caixas/fluxo/" method="POST" role="form">{% csrf_token %}
+
+            
+            
+    
             <div class="col-sm-4">
-                <label for="datetimepicker"><b>Data Inicial</b></label>
-                <p class="visible-print">{{ data_inicial|date:"d/m/Y H:i:s" }}</p>
+                <label for="datetimepicker">Data Inicio</label>
                 <div id="datetimepicker" class="input-group date hidden-print">
-                    <input type="text" name="data_inicial" value='{{ data_inicial|date:"d/m/Y H:i:s" }}' class="form-control">
+                   <input type="text" class="form-control" name="data_inicio" value='{{ data_incicio|date:"d/m/Y " }}' placeholder="01/01/2014">
                     <span class="input-group-addon add-on glyphicon glyphicon-calendar"></span>
                 </div>
             </div>
+    
             <div class="col-sm-4">
-                <label for="datetimepicker" class=""><b>Data Final</b></label>
-                <p class="visible-print">{{ data_final|date:"d/m/Y H:i:s" }}</p>
-                <div id="datetimepicker1" class="input-group date hidden-print">
-                    <input type="text" name="data_final" value='{{ data_final|date:"d/m/Y H:i:s" }}' class="form-control">
+              
+                <label for="datetimepicker">Data Final</label>
+               
+                <div id="datetimepicker" class="input-group date hidden-print">
+                    <input type="text" class="form-control" name="data_final" value='{{ data_final|date:"d/m/Y " }}' placeholder="01/01/2014">
                     <span class="input-group-addon add-on glyphicon glyphicon-calendar"></span>
                 </div>
             </div>
+
 
             <div class="col-md-1">
                 <br />
-                <button type="submit" class="btn btn-primary hidden-print"><span class="glyphicon glyphicon-search"></span></button>
+                <button type="submit" class="btn btn-primary">Calcular <span class="glyphicon glyphicon-search"></span></button>
             </div>
 </form>
-</div>
+<br><br><br>
 
-<hr>
+
 <div class="table-responsive">
       <table class="table table-striped">
         <thead>

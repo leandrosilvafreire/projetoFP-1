@@ -75,7 +75,7 @@ def caixaExcluir(request, pk=0):
 def caixaFluxo(request):
     if request.method == 'POST':
 
-        data_inicial = datetime.strptime(request.POST.get('data_inicial', ''), '%d/%m/%Y %H:%M:%S')
+        data_inicial = datetime.strptime(request.POST.get('data_inicio', ''), '%d/%m/%Y %H:%M:%S')
         data_final   = datetime.strptime(request.POST.get('data_final',   ''), '%d/%m/%Y %H:%M:%S')
         total = 0
 
@@ -86,7 +86,7 @@ def caixaFluxo(request):
         except:
             contas = []
 
-        return render(request, 'caixas/formFluxoCaixa.html', {'contas' : contas, 'total': total ,'data_inicial': data_inicial, 'data_final': data_final})
+        return render(request, 'caixas/formFluxoCaixa.html', {'contas' : contas, 'total': total ,'data_inicio': data_inicial, 'data_final': data_final})
 
     return render(request, 'caixas/formFluxoCaixa.html', {'contas' : []})
 
