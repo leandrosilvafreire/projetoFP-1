@@ -68,20 +68,20 @@
           </tr>
         {% endfor %}
         </tbody>
-        {% if total != NULL and contas|length > 0 %}
+        {% if total_fluxo != NULL and contas|length > 0 %}
         <tfoot>
          <tr class="success">
             <th>TOTAL:</th>
             <th></th>
             <th></th>
             <th></th>
-            <th>{{ total }}</th>
+            <th>{{ total_fluxo }}</th>
         </tr>
         </tfoot>
         {% endif %}
       </table>
 </div><!-- FIM TABELA -->
-{% if total != NULL and contas|length > 0 %}
+{% if total_fluxo != NULL and contas|length > 0 %}
  <button type="submit" onClick="window.print()" class="btn btn-info col-md-offset-11 col-sm-1 hidden-print">Print</button>
 {% endif %}
 
